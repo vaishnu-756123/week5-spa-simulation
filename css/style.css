@@ -1,0 +1,130 @@
+:root {
+  --primary: #6c5ce7;
+  --dark: #1e1e2f;
+  --light-bg: #f7f7fb;
+  --text: #333;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--light-bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ===== Header / Nav ===== */
+header {
+  background: var(--dark);
+  padding: 1rem 5%;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo { color: #fff; font-weight: 700; font-size: 1.3rem; }
+.logo span { color: var(--primary); }
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: #ccc;
+  font-weight: 500;
+  padding: .4rem .8rem;
+  border-radius: var(--radius);
+  transition: background .2s, color .2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===== Main / Routed content ===== */
+main#app {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 5%;
+  width: 100%;
+}
+
+.route-view {
+  animation: fadeIn .35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.loader {
+  text-align: center;
+  color: #888;
+  padding: 3rem 0;
+}
+
+h1 { color: var(--dark); margin-bottom: 1rem; }
+h2 { color: var(--primary); margin-bottom: .75rem; }
+p { margin-bottom: 1rem; line-height: 1.6; }
+
+/* ===== Cards (projects) ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  border-top: 4px solid var(--primary);
+}
+
+/* ===== Form ===== */
+form { max-width: 420px; margin-top: 1rem; }
+.form-group { margin-bottom: 1rem; }
+label { display: block; font-weight: 600; margin-bottom: .3rem; }
+input, textarea {
+  width: 100%;
+  padding: .6rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font: inherit;
+}
+button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: .7rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { background: #5a4bd6; }
+
+#form-status { margin-top: .75rem; font-weight: 600; color: var(--primary); }
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #888;
+  font-size: .85rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: .75rem; }
+}
